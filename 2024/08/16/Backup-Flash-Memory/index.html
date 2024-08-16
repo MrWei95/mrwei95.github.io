@@ -127,6 +127,71 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
@@ -156,7 +221,36 @@
         </header>
 
         <div class="post-content">
-            
+            <p><font face="微软雅黑" size=4 ></font></p>
+<p><font face="微软雅黑" size=4 >本文将带你学会如何备份Android设备的字库文件(包含基带)</font></p>
+<h2 id="一、什么是字库，为什么要备份字库？"><a href="#一、什么是字库，为什么要备份字库？" class="headerlink" title="一、什么是字库，为什么要备份字库？"></a><font face="微软雅黑" >一、什么是字库，为什么要备份字库？</font></h2><p><font face="微软雅黑" size=4 >字库可以简单理解为Android设备的分区。刷机时也会刷入分区，但刷入不完整。如果设备刚好是其他分区损坏了，那么即使线刷完整包也无法修复。所以为了预防特殊分区损坏、也为了预防不小心刷入格机模块(rm -rf &#x2F;)，玩机前我们需要自行备份Android设备的字库文件。</font></p>
+<h2 id="二、备份的前提条件"><a href="#二、备份的前提条件" class="headerlink" title="二、备份的前提条件"></a><font face="微软雅黑" >二、备份的前提条件</font></h2><h3 id="·-设备需获取Root权限"><a href="#·-设备需获取Root权限" class="headerlink" title="· 设备需获取Root权限"></a><font face="微软雅黑" >· 设备需获取Root权限</font></h3><p><font face="微软雅黑" size=4 >我选择使用Magisk获取Root权限，获取方式参考<a target="_blank" rel="noopener" href="http://www.bilibili.com/video/BV17aY9e4E9o/">我的视频</a>。当然，如果你没有获取Root权限，或者说连Bootloader锁都没有解开，那也没有必要备份字库，正常用就行，多一事不如少一事。</font></p>
+<h3 id="·-开启设备的USB调试"><a href="#·-开启设备的USB调试" class="headerlink" title="· 开启设备的USB调试"></a><font face="微软雅黑" >· 开启设备的USB调试</font></h3><p><font face="微软雅黑" size=4 >在开发者选项中打开。</font></p>
+<h3 id="·-给予Shell以Root权限"><a href="#·-给予Shell以Root权限" class="headerlink" title="· 给予Shell以Root权限"></a><font face="微软雅黑" >· 给予Shell以Root权限</font></h3><p><font face="微软雅黑" size=4 > 将设备连接至电脑，在终端进入adb shell(需提前拥有platform-tools，如何安装参考<a target="_blank" rel="noopener" href="http://www.bilibili.com/video/BV1KJ4m1u7or/">我的视频中安装驱动部分</a>。首次使用设备会提示“是否给予Root权限”，给予即可。指令如下：</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line">su</span><br></pre></td></tr></table></figure>
+
+<h3 id="·-在Android至少预留20GB可用空间"><a href="#·-在Android至少预留20GB可用空间" class="headerlink" title="· 在Android至少预留20GB可用空间"></a><font face="微软雅黑" >· 在Android至少预留20GB可用空间</font></h3><p><font face="微软雅黑" size=4 >现代Android设备分区很多，占用空间也很大，本人的小米平板6(pipa)备份文件大约十几GB。</font></p>
+<h2 id="三、备份字库"><a href="#三、备份字库" class="headerlink" title="三、备份字库"></a><font face="微软雅黑" >三、备份字库</font></h2><p><font face="微软雅黑" size=5 color=#FF000 >本文使用的方法是手动在Shell中键入指令以达成备份字库的目的，酷安上有教程可在手机上直接执行备份和恢复，写的很好，但本人认为恢复部分有些许问题，因此不采用这种方法。</font></p>
+<h3 id="·-创建工作目录"><a href="#·-创建工作目录" class="headerlink" title="· 创建工作目录"></a><font face="微软雅黑" >· 创建工作目录</font></h3><p><font face="微软雅黑" size=4 >首先，我们在设备sdcard目录下创建一个用于存储备份字库的目录：</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /sdcard/000_Backup</span><br></pre></td></tr></table></figure>
+<p><font face="微软雅黑" size=4 >这个时候我们就可以在设备的文件浏览器看到了。</font></p>
+<h3 id="·-读取设备的分区信息"><a href="#·-读取设备的分区信息" class="headerlink" title="· 读取设备的分区信息"></a><font face="微软雅黑" >· 读取设备的分区信息</font></h3><p><font face="微软雅黑" size=4 >在终端中输入以下命令，这里注意，我的指令中屏蔽了userdata和缓存分区(没有必要)。</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -1 /dev/block/bootdevice/by-name | grep -ixvE &quot;userdata|cache&quot; | while IFS= read -r name; do echo &quot;dd if=/dev/block/bootdevice/by-name/$name of=/sdcard/000_Backup/$name.img&quot; &gt;&gt; /sdcard/000_Backup/001_Backup.sh; echo &quot;fastboot flash $name $name.img&quot; &gt;&gt; /sdcard/000_Backup/002_Restore.bat; done</span><br></pre></td></tr></table></figure>
+<p><font face="微软雅黑" size=4 >执行完成后，000_Backup目录下会多出一个sh脚本和一个bat脚本，sh脚本用于读取备份，bat用于还原备份。</font></p>
+<h3 id="·-执行备份脚本"><a href="#·-执行备份脚本" class="headerlink" title="· 执行备份脚本"></a><font face="微软雅黑" >· 执行备份脚本</font></h3><p><font face="微软雅黑" size=4 >我们使用001_Backup.sh脚本执行备份：</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh /sdcard/000_Backup/001_Backup.sh</span><br></pre></td></tr></table></figure>
+<p><font face="微软雅黑" size=4 >随后终端会显示备份的进度，耐心等待。</font></p>
+<h3 id="·-创建MD5值表（可不看）"><a href="#·-创建MD5值表（可不看）" class="headerlink" title="· 创建MD5值表（可不看）"></a><font face="微软雅黑" >· 创建MD5值表（可不看）</font></h3><p><font face="微软雅黑" size=4 >备份完成后我们执行下面这条命令，它会计算我们备份出来的所有文件的MD5值并将其全部整理至003_MD5Hsah.txt这个文本中。</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /sdcard/000_Backup &amp;&amp; md5sum * &gt; /sdcard/000_Backup/003_MD5Hsah.txt</span><br></pre></td></tr></table></figure>
+<p><font face="微软雅黑" size=4 >备份MD5值是为了防止在存储过程中备份文件出现损坏，而我们浑然不知，将这个损坏的分区刷进手机导致出错。</font></p>
+<p><font face="微软雅黑" size=4 >到这里基础备份工作就完成了！</font></p>
+<h2 id="四、修改bat脚本（可不看）"><a href="#四、修改bat脚本（可不看）" class="headerlink" title="四、修改bat脚本（可不看）"></a><font face="微软雅黑" >四、修改bat脚本（可不看）</font></h2><p><font face="微软雅黑" size=4 >我们备份字库的目的就是还原那些刷机包中没有的分区文件，如果刷机包中包含某些文件，我们就没有必要还原，不然可能会导致版本冲突，并且浪费时间。我们可以修改bat脚本中的指令，使还原的时候不会恢复super等分区</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e &#x27;/ super.img/s/^/::/g&#x27; -e &#x27;/ system.img/s/^/::/g&#x27; -e &#x27;/ system_a.img/s/^/::/g&#x27; -e &#x27;/ system_b.img/s/^/::/g&#x27; -e &#x27;/ vendor.img/s/^/::/g&#x27; -e &#x27;/ vendor_a.img/s/^/::/g&#x27; -e &#x27;/ vendor_b.img/s/^/::/g&#x27; -e &#x27;/ mmcblk0.img/s/^/::/g&#x27; -e &#x27;/ sda.img/s/^/::/g&#x27; -e &#x27;/ sdb.img/s/^/::/g&#x27; -e &#x27;/ sdc.img/s/^/::/g&#x27; -e &#x27;/ sdd.img/s/^/::/g&#x27; -e &#x27;/ sde.img/s/^/::/g&#x27; -e &#x27;/ sdf.img/s/^/::/g&#x27; -e &#x27;/ sdg.img/s/^/::/g&#x27; /sdcard/000_Backup/002_Restore.bat</span><br></pre></td></tr></table></figure>
+<p><font face="微软雅黑" size=4 >然后我们给它打包一下，在sdcard根目录下就可以看到PartitionBackup.tgz了。</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /sdcard &amp;&amp; tar -zcpvf PartitionBackup.tgz 000_Backup</span><br></pre></td></tr></table></figure>
+<p><font face="微软雅黑" size=4 >我们将tgz压缩文件备份至电脑端，以后要用直接解压就很方便了。这时我们就可以删除设备存储中的000_Backup目录，释放空间。以后需要还原的时候我们只需要解压目录，将手机启动至Fastboot模式，在终端执行bat脚本即可。</font></p>
+<p><font face="微软雅黑" size=5 >备份分区列表的博客暂未更新！</font></p>
+
         </div>
 
         
