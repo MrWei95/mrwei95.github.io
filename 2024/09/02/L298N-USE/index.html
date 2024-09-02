@@ -230,7 +230,7 @@
 <img src="/2024/09/02/L298N-USE/L298N_Looklike.jpg" class="" title="jpg" style="zoom:60%;" >
 <font face="微软雅黑" size=3 >——L298N长这样</font>
 
-<h2 id="模块的引脚"><a href="#模块的引脚" class="headerlink" title="模块的引脚"></a><font face="微软雅黑" size=4 >模块的引脚</font></h2><img src="/2024/09/02/L298N-USE/L298N_Pinout.jpg" class="" title="jpg" style="zoom:80%;" >
+<h2 id="模块的引脚"><a href="#模块的引脚" class="headerlink" title="模块的引脚"></a><font face="微软雅黑" >模块的引脚</font></h2><img src="/2024/09/02/L298N-USE/L298N_Pinout.jpg" class="" title="jpg" style="zoom:80%;" >
 <font face="微软雅黑" size=4 ></font>
 
 <h3 id="电源端口"><a href="#电源端口" class="headerlink" title="电源端口"></a><font face="微软雅黑" >电源端口</font></h3><p><font face="微软雅黑" size=4 >首先看到模块的右下角的三个接线端子，分别是“+12V”、“GND”和“+5V”，这三个端子是模块的供电端。“+12V”为输入正极，“GND”接地，这两个很好理解，但这“+5V”是个什么玩意儿？仔细看我再“+5V”端口旁边写的标注，它既可以输入又可以输出，这是什么意思呢？其实它究竟是输入还是输出，取决于“+12V”输入口输入的电压，并且跟这三个端子旁我画绿框的跳线帽有关。</font></p>
@@ -239,6 +239,7 @@
 <h3 id="OUT输出口"><a href="#OUT输出口" class="headerlink" title="OUT输出口"></a><font face="微软雅黑" >OUT输出口</font></h3><p><font face="微软雅黑" size=4 >OUT1和OUT2(组1)、OUT3和OUT4(组2)是两对输出引脚，它们直接连接电机的驱动引脚，它们输出0或1。我们知道，只有回路中有电流电机才能转，所以OUT1和OUT2中输出的信号必须不同电机才能转，如果我们把两个引脚信号都翻转一下，电机就会反转；同时，如果两个引脚都输出0或1，那么电机就不会转。</font></p>
 <h3 id="IN输出口"><a href="#IN输出口" class="headerlink" title="IN输出口"></a><font face="微软雅黑" >IN输出口</font></h3><p><font face="微软雅黑" size=4 >输入口IN1和IN2(组1)、IN3和IN4(组2)为两对输入引脚，可用单片机控制，拿组1来说，IN口的输入信号对应OUT口的输出信号，信号相反电机转、信号翻转电机反转、信号相同电机不转。但是L298N仅仅凭IN口输入信号是无法控制电机旋转的，还需要使能。</font></p>
 <h3 id="EN使能口"><a href="#EN使能口" class="headerlink" title="EN使能口"></a><font face="微软雅黑" >EN使能口</font></h3><p><font face="微软雅黑" size=4 >在IN输入口两侧有两个使能端口，使能的意思就是给它能量，其反义词为失能。EN端口在这里控制OUT是否输出信号，ENA和ENB分别控制两侧。若IN1给1、IN2给0，但ENA不给信号，那么OUT1、2就不会有输出，ENB同理。我用蓝色箭头引出ENB的跳线端，这里可以看到左侧是一个+5V的输出，我们拿到一个新的L298N时跳线帽默认是接上的，也就是说上电之后5V电压就会给到使能口，只要你接上电源再控制输入口就可以让电机旋转了。</font><br><font face="微软雅黑" size=4 >但如果我希望使用PWM对电机调速，那么只能控制输入端的信号，我手头现成给LED调光的代码就没法直接用了。此时我们就可以拆掉使能口的跳线帽，让单片机给它信号使能，这样代码中实际翻转的就只有ENA、ENB这两个变量，控制电机正转反转的代码就可以写在别的地方了。</font></p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a><font face="微软雅黑" >示例代码</font></h2><p><font face="微软雅黑" size=4 color=#FF000 >以后再写吧！(笑)</font></p>
 
         </div>
 
