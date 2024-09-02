@@ -227,13 +227,16 @@
         <div class="post-content">
             <p><font face="微软雅黑" size=4 ></font></p>
 <p><font face="微软雅黑" size=4 >L298N是一个常见的电机驱动模块，也是我学习嵌入式的过程中使用的第一种此类型模块。本文将以当时作为初学者的我的视角讲解该模块。</font></p>
-<img src="/2024/09/02/L298N-USE/L298N_Looklike.jepg" class="" title="jepg" style="zoom:60%;" >
+<img src="/2024/09/02/L298N-USE/L298N_Looklike.jpg" class="" title="jpg" style="zoom:60%;" >
 <font face="微软雅黑" size=3 >——L298N长这样</font>
 
-<h2 id="模块的引脚"><a href="#模块的引脚" class="headerlink" title="模块的引脚"></a><font face="微软雅黑" size=4 >模块的引脚</font></h2><img src="/2024/09/02/L298N-USE/L298N_Pinout.jepg" class="" title="jepg" style="zoom:80%;" >
+<h2 id="模块的引脚"><a href="#模块的引脚" class="headerlink" title="模块的引脚"></a><font face="微软雅黑" size=4 >模块的引脚</font></h2><img src="/2024/09/02/L298N-USE/L298N_Pinout.jpg" class="" title="jpg" style="zoom:80%;" >
 <font face="微软雅黑" size=4 ></font>
 
-<p><font face="微软雅黑" size=4 >上图从上往下、从左往右看</font></p>
+<p><font face="微软雅黑" size=4 >我们介绍一下上图：</font></p>
+<h3 id="电源端口"><a href="#电源端口" class="headerlink" title="电源端口"></a><font face="微软雅黑" >电源端口</font></h3><p><font face="微软雅黑" size=4 >首先看到模块的右下角的三个接线端子，分别是“+12V”、“GND”和“+5V”，这三个端子是模块的供电端。“+12V”为输入正极，“GND”接地，这两个很好理解，但这“+5V”是个什么玩意儿？仔细看我再“+5V”端口旁边写的标注，它既可以输入又可以输出，这是什么意思呢？其实它究竟是输入还是输出，取决于“+12V”输入口输入的电压，并且跟这三个端子旁我画绿框的跳线帽有关。</font></p>
+<h4 id="“-12V”端口输入电压低于12V"><a href="#“-12V”端口输入电压低于12V" class="headerlink" title="“+12V”端口输入电压低于12V"></a><font face="微软雅黑" size=4 >“+12V”端口输入电压低于12V</font></h4><p><font face="微软雅黑" size=4 >此时绿框跳线帽应该接上，输入电压给模块的芯片供电，并且以电源电压输出给电机。这种情况下，“+5V”端口是输出端，输出+5V，可以给其他设备供电(如需供电，请共用GND)</font></p>
+<h4 id="“-12V”端口输入电压高于12V"><a href="#“-12V”端口输入电压高于12V" class="headerlink" title="“+12V”端口输入电压高于12V"></a><font face="微软雅黑" size=4 >“+12V”端口输入电压高于12V</font></h4><p><font face="微软雅黑" size=4 >OUT1和OUT2(组1)、OUT3和OUT4(组2)是两对输出引脚，它们直接连接电机的驱动引脚，它们输出0或1。我们知道，只有回路中有电流电机才能转，所以OUT1和OUT2中输出的信号必须不同电机才能转，如果我们把两个引脚信号都翻转一下，电机就会反转；同时，如果两个引脚都输出0或1，那么电机就不会转。</font></p>
 
         </div>
 
