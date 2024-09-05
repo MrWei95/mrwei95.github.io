@@ -1,3 +1,8 @@
+@font-face {
+  font-family: MicrosoftYahei;
+  font-style: normal;
+  font-weight: normal;
+}
 html {
   font-family: $font-family;
 }
