@@ -143,18 +143,22 @@ template {
   display: none;
 }
 @font-face {
-  font-family: 'lanting';
-  src: url("../fonts/lanting/lanting.eot"); /* IE9 */
-  src: url("../fonts/lanting/lanting.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */ url("../fonts/lanting/lanting.woff2") format('woff2'), url("../fonts/lanting/lanting.woff") format('woff'), url("../fonts/lanting/lanting.ttf") format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  font-weight: 300;
+  font-family: MicrosoftYahei;
+  src: url("../fonts/MicrosoftYahei/MicrosoftYahei.ttf") format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  font-weight: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: MicrosoftYahei;
+  font-style: normal;
+  font-weight: normal;
+}
 html {
-  font-family: 'Microsoft Jhenghei', Lantinghei SC, 'lanting', PingFang SC, Seguo UI, Microsoft Yahei, Arial;
+  font-family: 'MicrosoftYahei';
 }
 html::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 html::-webkit-scrollbar-thumb {
   height: 40px;
@@ -630,6 +634,7 @@ header label {
   text-decoration: none;
   overflow: hidden;
   white-space: nowrap;
+  font-size: 20px;
 }
 .archive-item-link:hover {
   color: #2d96bd;
@@ -649,6 +654,7 @@ header label {
   float: right;
   text-align: right;
   color: #a9a9b3;
+  font-size: 20px;
 }
 .dark-theme .archive-item-date {
   color: #87878d;
@@ -705,6 +711,7 @@ header label {
 .tag-cloud-tags a small {
   margin: 0 0.3em;
   color: #a9a9b3;
+  font-size: 14px;
 }
 .dark-theme .tag-cloud-tags a small {
   color: #fff;
@@ -1032,6 +1039,7 @@ header label {
   padding: 1rem 0 1rem;
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
 }
 .post-nav:before,
 .post-nav:after {
@@ -1229,7 +1237,7 @@ header label {
     background: #292a2d !important;
   }
   .archive {
-    width: 90%;
+    width: 100%;
   }
   .archive .archive-item .archive-item-date {
     display: none;
@@ -1370,4 +1378,14 @@ header label {
 .post-content pre .keyword,
 .post-content pre .javascript .function {
   color: #8959a8;
+}
+.post-content figure.highlight figcaption {
+  text-align: left;
+}
+.footer {
+  height: 3rem;
+  line-height: 1.2rem;
+}
+footer {
+  text-align: right;
 }
