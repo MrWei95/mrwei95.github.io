@@ -711,7 +711,7 @@ header label {
 .tag-cloud-tags a small {
   margin: 0 0.3em;
   color: #a9a9b3;
-  font-size: 14px;
+  font-size: 16px;
 }
 .dark-theme .tag-cloud-tags a small {
   color: #fff;
@@ -1002,7 +1002,7 @@ header label {
 }
 .post-content figure.highlight::-webkit-scrollbar-thumb {
   width: 6px;
-  background-color: #eee;
+  background-color: #000;
   border-radius: 2px;
 }
 .post-content figure.highlight figcaption {
@@ -1085,7 +1085,7 @@ header label {
   position: fixed;
   top: 95px;
   right: 2em;
-  width: 15rem;
+  width: 18rem;
   font-size: $font-size-13;
 }
 .post-toc .tocbot-list {
