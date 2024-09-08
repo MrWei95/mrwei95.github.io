@@ -634,7 +634,7 @@ header label {
   text-decoration: none;
   overflow: hidden;
   white-space: nowrap;
-  font-size: 20px;
+  font-size: 18px;
 }
 .archive-item-link:hover {
   color: #2d96bd;
@@ -654,7 +654,7 @@ header label {
   float: right;
   text-align: right;
   color: #a9a9b3;
-  font-size: 20px;
+  font-size: 18px;
 }
 .dark-theme .archive-item-date {
   color: #87878d;
