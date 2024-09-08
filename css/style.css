@@ -1085,11 +1085,11 @@ header label {
   position: fixed;
   top: 95px;
   right: 2em;
-  width: 15rem;
+  width: 12rem;
   font-size: $font-size-13;
 }
 .post-toc .tocbot-list {
-  max-height: 400px;
+  max-height: 450px;
   max-width: 350px;
   overflow: auto;
   position: relative;
