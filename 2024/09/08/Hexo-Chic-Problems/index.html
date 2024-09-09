@@ -238,12 +238,14 @@
 <table>
 <thead>
 <tr>
-<th><img src="/2024/09/08/Hexo-Chic-Problems/github%E9%83%A8%E7%BD%B2.png" alt="tu"></th>
-<th><img src="/2024/09/08/Hexo-Chic-Problems/github%E9%83%A8%E7%BD%B2.png" alt="tu"></th>
+<th><img src="/2024/09/08/Hexo-Chic-Problems/github%E9%83%A8%E7%BD%B2.png" alt="GitHub部署"></th>
+<th><img src="/2024/09/08/Hexo-Chic-Problems/localhost.png" alt="localhost部署"></th>
 </tr>
 </thead>
 </table>
-<p><font face="微软雅黑" size=4 >比如上面这两张图，我修改了代码，想让归档页面的字体大一点。左边是generate后部署到GitHub Page后呈现的界面，右边是localhost时呈现的界面，截取像素面积是一样的，明显看出来GitHub部署的页面字体特别小，但问题是不论我怎么改都无济于事！localhost会随着我修改代码而改变，GitHub部署的页面纹丝不动。</font></p>
+<p><font face="微软雅黑" size=4 >比如上面这两张图，我修改了代码，想让归档页面的字体大一点。左边是generate后部署到GitHub Page后呈现的界面，右边是localhost时呈现的界面，截取像素面积是一样的，明显看出来GitHub部署的页面字体特别小，但问题是不论我怎么改都无济于事！localhost会随着我修改代码而改变，GitHub部署的页面纹丝不动！</font></p>
+<p><font face="微软雅黑" size=4 >修改正文右侧的目录标签的时候也遇到相同的问题，修改了行宽，部署的页面却一直没有改变。</font></p>
+<p><font face="微软雅黑" size=4 >我的解决办法就是使用<code>hexo clean</code>清除生成的目录，再<code>hexo g</code>生成一遍后部署，才有可能正常。</font></p>
 
         </div>
 
