@@ -254,7 +254,7 @@
 </tbody></table>
 <p><font face="微软雅黑" size=4 >修改正文右侧的目录标签的时候也遇到相同的问题，虽然修改了行宽，部署的页面却一直没有改变。</font></p>
 <p><font face="微软雅黑" size=4 >经过一段时间的尝试，我发现在<code>theme</code>目录下编辑的一些东西生成时不会立刻改变，我的解决办法就是使用<code>hexo clean</code>清除生成的目录，再<code>hexo g</code>生成一遍后部署，才有可能正常。</font></p>
-<h2 id="文件geneerate后错位"><a href="#文件geneerate后错位" class="headerlink" title="文件geneerate后错位"></a><font face="微软雅黑" >文件geneerate后错位</font></h2><p><font face="微软雅黑" size=4 >我在写第二篇博客的时候需要配图，源图片是放在<code>../source/_post/文章文件同名文件夹/</code>下的，生成的时候应该生成到对应的目录下的，但是我在generate的时候却生成到了上一篇博客的目录下，并且文件名称还少了几个字母，拿这篇博客使用的图片举例，我放在源目录下的文件名为<code>github部署.png</code>，生成错位的目录下就变成了<code>thub部署.png</code>，我尝试过删掉文件、重新命名等一系列方法都无效，最后还是<code>hexo clean</code>再<code>hexo g</code>才解决。</font><br><font face="微软雅黑" size=4 > </font><br><font face="微软雅黑" size=4 color=#FF000 >遇到问题慢慢写，有的时候懒瘾一犯就会无限制拖下去了(笑)</font></p>
+<h2 id="文件geneerate后错位"><a href="#文件geneerate后错位" class="headerlink" title="文件geneerate后错位"></a><font face="微软雅黑" >文件geneerate后错位</font></h2><p><font face="微软雅黑" size=4 >我在写第二篇博客的时候需要配图，源图片是放在<code>../source/_post/文章文件同名文件夹/</code>下的，生成的时候应该生成到对应的目录下的，但是我在generate的时候却生成到了上一篇博客的目录下，并且文件名称还少了几个字母，拿这篇博客使用的图片举例，我放在源目录下的文件名为<code>github部署.png</code>，生成错位的目录下就变成了<code>thub部署.png</code>，我尝试过删掉文件、重新命名等一系列方法都无效，最后还是<code>hexo clean</code>再<code>hexo g</code>才解决。</font><br><font face="微软雅黑" size=4 > </font><br><font face="微软雅黑" size=4 color=#00A2E8 >（遇到问题慢慢写，有的时候懒瘾一犯就会无限制拖下去了(笑)）</font></p>
 
         </div>
 
