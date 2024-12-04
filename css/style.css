@@ -191,7 +191,7 @@ body:before {
 }
 body.dark-theme {
   background-color: #2d2d2d;
-  color: #a9a9b3;
+  color: #d1d1d1;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
 a {
@@ -206,7 +206,7 @@ a:hover {
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
 .dark-theme a {
-  color: #a9a9b3;
+  color: #b3b3b3;
   text-decoration: none;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
@@ -641,7 +641,7 @@ header label {
   background-color: transparent;
 }
 .dark-theme .archive-item-link {
-  color: #a9a9b3;
+  color: #b3b3b3;
   text-decoration: none;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
@@ -657,7 +657,7 @@ header label {
   font-size: 18px;
 }
 .dark-theme .archive-item-date {
-  color: #87878d;
+  color: #8d8d8d;
 }
 .post-wrap .categories-card {
   margin: 0 auto;
@@ -738,7 +738,7 @@ header label {
   color: rgba(85,85,85,0.529) !important;
 }
 .dark-theme .post-wrap .post-meta {
-  color: #87878d !important;
+  color: #8d8d8d !important;
 }
 .post-wrap .post-meta a {
   color: #2d96bd;
@@ -903,7 +903,7 @@ header label {
   color: #a9a9b3;
 }
 .dark-theme .post-content .image-box .image-box-title {
-  color: #87878d;
+  color: #8d8d8d;
 }
 .post-content blockquote {
   font-size: 1rem;
@@ -922,7 +922,7 @@ header label {
   margin-right: 0.5em;
 }
 .dark-theme .post-content blockquote {
-  color: #a9a9b3;
+  color: #d1d1d1;
   background-color: #3e3e3e;
   border-left: 2px solid #dcdcdc;
 }
@@ -1181,7 +1181,7 @@ header label {
     transition: 0.25s margin 0.25s, 0.25s transform;
   }
   .dark-theme .navbar-mobile .container .navbar-header .menu-toggle span {
-    background: #a9a9b3;
+    background: #d1d1d1;
   }
   .navbar-mobile .container .navbar-header .menu-toggle span:nth-child(1) {
     margin-bottom: 8px;
@@ -1231,7 +1231,7 @@ header label {
   }
   .dark-theme .navbar-mobile .container .menu {
     background: #2d2d2d;
-    border-top: 2px solid #87878d;
+    border-top: 2px solid #8d8d8d;
   }
   .dark-theme .navbar-mobile .container {
     background: #2d2d2d !important;
