@@ -190,7 +190,7 @@ body:before {
   z-index: -1;
 }
 body.dark-theme {
-  background-color: #292a2d;
+  background-color: #2d2d2d;
   color: #a9a9b3;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
@@ -978,11 +978,11 @@ header label {
   padding: 3px 5px;
   border-radius: 4px;
   color: #c7254e;
-  background: #f8f5ec;
+  background: #2e2d2c;
 }
 .dark-theme .post-content code {
   color: #fffe28;
-  background: #787575;
+  background: #2e2d2c;
 }
 .post-content h1 code,
 .post-content h2 code,
@@ -1230,11 +1230,11 @@ header label {
     overflow-x: auto;
   }
   .dark-theme .navbar-mobile .container .menu {
-    background: #292a2d;
+    background: #2d2d2d;
     border-top: 2px solid #87878d;
   }
   .dark-theme .navbar-mobile .container {
-    background: #292a2d !important;
+    background: #2d2d2d !important;
   }
   .archive {
     width: 100%;
